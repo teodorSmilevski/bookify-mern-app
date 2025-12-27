@@ -1,21 +1,8 @@
-import mongoose, { Document, Schema } from "mongoose";
-
-export interface IAppointment extends Document {
-  id: string;
-  name: string;
-  phoneNumber: string;
-  date: Date;
-  time: string;
-  createdAt: Date;
-}
+import mongoose, { Schema } from "mongoose";
+import { IAppointment } from "../interfaces/appointment.interface";
 
 const appointmentSchema = new Schema<IAppointment>(
   {
-    id: {
-      type: String,
-      required: true,
-      unique: true,
-    },
     name: {
       type: String,
       required: [true, "Name is required"],
