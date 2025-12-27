@@ -28,6 +28,10 @@ GET /appointments
 
 - Returns a list of all appointments
 
+GET /appointments/weekly
+
+- Returns a list of all appointments for the current week
+
 DELETE /appointments/{id}
 
 - Deletes an appointment
