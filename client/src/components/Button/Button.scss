@@ -1,0 +1,27 @@
+@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
+
+.button {
+  background-color: $amber;
+  color: $charcoal;
+  padding: $spacing-md;
+  border: none;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  transition: background-color $transition;
+
+  &:hover {
+    background-color: $primary-dark;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

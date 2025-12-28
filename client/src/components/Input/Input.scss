@@ -1,0 +1,35 @@
+@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  &__label {
+    color: $text-primary;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-sm;
+
+    &--with-prefix {
+      margin-left: $spacing-md;
+    }
+  }
+
+  &__field {
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-md;
+    font-size: $font-size-base;
+    transition: border-color $transition;
+
+    &:focus {
+      outline: none;
+      border-color: $amber;
+    }
+
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+}

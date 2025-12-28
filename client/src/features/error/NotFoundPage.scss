@@ -1,0 +1,41 @@
+@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
+
+.not-found-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+
+  &__container {
+    text-align: center;
+    padding: $spacing-2xl;
+  }
+
+  &__title {
+    color: $crimson;
+    font-size: $font-size-5xl;
+    margin-bottom: $spacing-md;
+  }
+
+  &__description {
+    color: $text-secondary;
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__link {
+    display: inline-block;
+    background-color: $amber;
+    color: $charcoal;
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    transition: background-color $transition;
+
+    &:hover {
+      background-color: $primary-dark;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use "../../../styles/colors" as *;
+@use "../../../styles/variables" as *;
+
+.footer {
+  background-color: $charcoal;
+  margin-top: auto;
+
+  &__container {
+    max-width: $container-max-width-xl;
+    margin: 0 auto;
+    padding: $spacing-lg;
+    text-align: center;
+  }
+
+  &__text {
+    color: $text-light;
+    font-size: $font-size-sm;
+    margin: 0;
+  }
+}

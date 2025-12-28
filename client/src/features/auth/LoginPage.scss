@@ -1,0 +1,31 @@
+@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+
+  &__container {
+    background: $bg-primary;
+    padding: $spacing-2xl;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__title {
+    color: $text-primary;
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-xl;
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+}

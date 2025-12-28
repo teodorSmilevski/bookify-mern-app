@@ -1,7 +1,7 @@
 // Import all style partials
-@import "./colors";
-@import "./variables";
-@import "./mixins";
+@use "./colors" as *;
+@use "./variables" as *;
+@use "./mixins" as *;
 
 // Global Reset & Base Styles
 *,

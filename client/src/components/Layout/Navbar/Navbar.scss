@@ -1,0 +1,44 @@
+@use "../../../styles/colors" as *;
+@use "../../../styles/variables" as *;
+
+.navbar {
+  background-color: $charcoal;
+  box-shadow: $shadow-md;
+
+  &__container {
+    max-width: $container-max-width-xl;
+    margin: 0 auto;
+    padding: $spacing-md $spacing-lg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $amber;
+    text-decoration: none;
+    transition: color $transition;
+
+    &:hover {
+      color: $primary-light;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: $spacing-lg;
+  }
+
+  &__link {
+    color: $text-light;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    transition: color $transition;
+
+    &:hover {
+      color: $amber;
+    }
+  }
+}
