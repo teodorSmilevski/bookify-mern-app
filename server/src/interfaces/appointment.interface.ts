@@ -6,4 +6,5 @@ export interface IAppointment extends Document {
   date: Date;
   time: string;
   createdAt: Date;
+  updatedAt: Date;
 }

@@ -24,6 +24,7 @@ const appointmentSchema = new Schema<IAppointment>(
   },
   {
     timestamps: true,
+    id: false,
   }
 );
 
