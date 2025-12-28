@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useUser } from "../../../context";
+import { useUser } from "../../../context/UserContext";
 import { appointmentService } from "../../../services/appointment.service";
 
 export const useBookingForm = () => {

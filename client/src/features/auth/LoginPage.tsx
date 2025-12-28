@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../../context";
+import { useUser } from "../../context/UserContext";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import "./LoginPage.scss";

@@ -1,0 +1,72 @@
+@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
+
+.admin-dashboard {
+  min-height: calc(100vh - 200px);
+  padding: $spacing-2xl $spacing-lg;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__title {
+    color: $text-primary;
+    font-size: $font-size-4xl;
+  }
+
+  &__tabs {
+    display: flex;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-2xl;
+    border-bottom: 2px solid $border-color;
+  }
+
+  &__tab {
+    padding: $spacing-md $spacing-lg;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: $text-secondary;
+    font-size: $font-size-lg;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all $transition;
+    margin-bottom: -2px;
+
+    &:hover {
+      color: $text-primary;
+      background: rgba($peach, 0.2);
+    }
+
+    &--active {
+      color: $amber;
+      border-bottom-color: $amber;
+    }
+  }
+
+  &__error {
+    padding: $spacing-md;
+    background: rgba($crimson, 0.1);
+    border: 2px solid $crimson;
+    border-radius: $border-radius-md;
+    color: $crimson;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__loading {
+    text-align: center;
+    padding: $spacing-3xl;
+    color: $text-secondary;
+    font-size: $font-size-xl;
+  }
+}

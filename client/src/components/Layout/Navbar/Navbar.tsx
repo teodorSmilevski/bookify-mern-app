@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useUser } from "../../../context";
+import { useUser } from "../../../context/UserContext";
 import "./Navbar.scss";
 
 const Navbar = () => {

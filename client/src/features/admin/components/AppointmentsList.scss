@@ -1,0 +1,84 @@
+@use "../../../styles/colors" as *;
+@use "../../../styles/variables" as *;
+
+.appointments-list {
+  background: $bg-primary;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-lg;
+  overflow: hidden;
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1.5fr 1fr;
+    gap: $spacing-md;
+    padding: $spacing-lg;
+    background: $bg-secondary;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  &__header-cell {
+    font-size: $font-size-base;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1.5fr 1fr;
+    gap: $spacing-md;
+    padding: $spacing-lg;
+    border-bottom: 1px solid $border-color;
+    transition: background $transition;
+
+    &:hover {
+      background: rgba($peach, 0.1);
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__cell {
+    display: flex;
+    align-items: center;
+    color: $text-primary;
+    font-size: $font-size-base;
+
+    &--actions {
+      justify-content: flex-end;
+    }
+  }
+
+  &__empty {
+    padding: $spacing-3xl;
+    text-align: center;
+    color: $text-secondary;
+    font-size: $font-size-xl;
+    background: $bg-primary;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__header,
+    &__row {
+      grid-template-columns: 1fr;
+      gap: $spacing-sm;
+    }
+
+    &__header {
+      display: none;
+    }
+
+    &__cell {
+      padding: $spacing-sm 0;
+
+      &::before {
+        content: attr(data-label);
+        font-weight: 600;
+        margin-right: $spacing-sm;
+        min-width: 100px;
+      }
+    }
+  }
+}
