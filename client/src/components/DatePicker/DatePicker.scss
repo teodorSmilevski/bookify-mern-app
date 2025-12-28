@@ -1,0 +1,59 @@
+@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
+
+.date-picker {
+  &__label {
+    display: block;
+    color: $text-primary;
+    font-size: $font-size-base;
+    font-weight: 500;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: $spacing-sm;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: $spacing-xs;
+  }
+
+  &__option {
+    padding: $spacing-md;
+    border: 2px solid $border-color;
+    border-radius: $border-radius-md;
+    background: $bg-primary;
+    color: $text-primary;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    transition: all $transition;
+    text-align: center;
+
+    &:hover {
+      border-color: $amber;
+      background: rgba($amber, 0.1);
+    }
+
+    &--selected {
+      border-color: $amber;
+      background: $amber;
+      color: $text-light;
+      font-weight: 600;
+
+      &:hover {
+        background: darken($amber, 5%);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      &:hover {
+        border-color: $border-color;
+        background: $bg-primary;
+      }
+    }
+  }
+}

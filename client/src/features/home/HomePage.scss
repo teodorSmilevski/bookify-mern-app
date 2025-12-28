@@ -1,0 +1,85 @@
+@use "../../styles/colors" as *;
+@use "../../styles/variables" as *;
+
+.home-page {
+  min-height: calc(100vh - 200px);
+  padding: $spacing-2xl $spacing-lg;
+
+  &__container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    color: $text-primary;
+    font-size: $font-size-4xl;
+    margin-bottom: $spacing-md;
+    text-align: center;
+  }
+
+  &__description {
+    color: $text-secondary;
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-2xl;
+    text-align: center;
+  }
+
+  &__login-prompt {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    padding: $spacing-md;
+    background: rgba($peach, 0.2);
+    border-radius: $border-radius-md;
+    color: $text-primary;
+  }
+
+  &__login-link {
+    background: none;
+    border: none;
+    color: $amber;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+
+    &:hover {
+      color: darken($amber, 10%);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xl;
+    background: $bg-primary;
+    padding: $spacing-2xl;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-xl;
+  }
+
+  &__section {
+    &-title {
+      color: $text-primary;
+      font-size: $font-size-2xl;
+      margin-bottom: $spacing-lg;
+      padding-bottom: $spacing-sm;
+      border-bottom: 2px solid $border-color;
+    }
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  &__error {
+    padding: $spacing-md;
+    background: rgba($crimson, 0.1);
+    border: 2px solid $crimson;
+    border-radius: $border-radius-md;
+    color: $crimson;
+    font-weight: 500;
+    text-align: center;
+  }
+}
