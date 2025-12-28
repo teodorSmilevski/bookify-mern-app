@@ -1,0 +1,54 @@
+// Brand Colors
+$charcoal: #32373b;
+$slate: #4a5859;
+$peach: #f4d6cc;
+$amber: #f4b860;
+$crimson: #c83e4d;
+
+// Color Palette
+$primary-color: $amber;
+$primary-dark: #d9a040;
+$primary-light: #f7c680;
+
+$secondary-color: $slate;
+$secondary-dark: #3a4445;
+$secondary-light: #5d6d6f;
+
+$accent-color: $crimson;
+$accent-dark: #a5323e;
+$accent-light: #d65563;
+
+// Neutral Colors
+$white: #ffffff;
+$black: #000000;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: $peach;
+$gray-400: #d4c5be;
+$gray-500: #9a9a9a;
+$gray-600: $slate;
+$gray-700: #3a4445;
+$gray-800: $charcoal;
+$gray-900: #252a2d;
+
+// Semantic Colors
+$success: #50c878;
+$info: #4a90e2;
+$warning: $amber;
+$danger: $crimson;
+
+// Background Colors
+$bg-primary: $white;
+$bg-secondary: $peach;
+$bg-dark: $charcoal;
+
+// Text Colors
+$text-primary: $charcoal;
+$text-secondary: $slate;
+$text-muted: $gray-500;
+$text-light: $white;
+
+// Border Colors
+$border-color: $peach;
+$border-color-light: #f9e8e0;
+$border-color-dark: #d4c5be;
