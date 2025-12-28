@@ -1,7 +1,10 @@
-export const WORKING_DAYS = [1, 2, 3, 4, 5, 6];
-export const START_HOUR = 10;
-export const END_HOUR = 18;
-export const SLOT_DURATION = 30;
+import { WORKING_HOURS } from "@shared/constants/working-hours";
+
+// Re-export for backwards compatibility
+export const WORKING_DAYS: number[] = [...WORKING_HOURS.DAYS];
+export const START_HOUR = WORKING_HOURS.START_HOUR;
+export const END_HOUR = WORKING_HOURS.END_HOUR;
+export const SLOT_DURATION = WORKING_HOURS.SLOT_DURATION_MINUTES;
 
 export const generateTimeSlots = (): string[] => {
   const slots: string[] = [];
@@ -16,7 +19,7 @@ export const generateTimeSlots = (): string[] => {
 
 export const isWorkingDay = (date: Date): boolean => {
   const day = date.getDay();
-  return WORKING_DAYS.includes(day);
+  return (WORKING_DAYS as readonly number[]).includes(day);
 };
 
 export const formatDate = (date: Date): string => {

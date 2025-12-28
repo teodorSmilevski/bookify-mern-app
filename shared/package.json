@@ -1,0 +1,17 @@
+{
+  "name": "@bookify/shared",
+  "version": "1.0.0",
+  "description": "Shared DTOs and types for Bookify MERN app",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "shared",
+    "dto",
+    "types"
+  ],
+  "author": "",
+  "license": "ISC"
+}

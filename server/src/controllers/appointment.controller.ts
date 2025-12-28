@@ -1,9 +1,17 @@
 import { Request, Response } from "express";
 import { Appointment } from "../models/appointment.model";
+import {
+  CreateAppointmentRequest,
+  CreateAppointmentResponse,
+  GetAppointmentsResponse,
+  GetWeeklyAppointmentsResponse,
+  DeleteAppointmentResponse,
+  ErrorResponse,
+} from "@shared/dtos/appointment.dto";
 
 export const createAppointment = async (
-  req: Request,
-  res: Response
+  req: Request<{}, {}, CreateAppointmentRequest>,
+  res: Response<CreateAppointmentResponse | ErrorResponse>
 ): Promise<void> => {
   try {
     const { name, phoneNumber, date, time } = req.body;
@@ -35,7 +43,15 @@ export const createAppointment = async (
 
     res.status(201).json({
       message: "Appointment created successfully",
-      data: appointment,
+      data: {
+        _id: appointment._id.toString(),
+        name: appointment.name,
+        phoneNumber: appointment.phoneNumber,
+        date: appointment.date.toISOString().split("T")[0],
+        time: appointment.time,
+        createdAt: appointment.createdAt.toISOString(),
+        updatedAt: appointment.updatedAt.toISOString(),
+      },
     });
   } catch (error) {
     console.error("Error creating appointment:", error);
@@ -48,7 +64,7 @@ export const createAppointment = async (
 
 export const getAllAppointments = async (
   _req: Request,
-  res: Response
+  res: Response<GetAppointmentsResponse | ErrorResponse>
 ): Promise<void> => {
   try {
     const appointments = await Appointment.find().sort({ date: 1, time: 1 });
@@ -56,7 +72,15 @@ export const getAllAppointments = async (
     res.status(200).json({
       message: "Appointments retrieved successfully",
       count: appointments.length,
-      data: appointments,
+      data: appointments.map((apt) => ({
+        _id: apt._id.toString(),
+        name: apt.name,
+        phoneNumber: apt.phoneNumber,
+        date: apt.date.toISOString().split("T")[0],
+        time: apt.time,
+        createdAt: apt.createdAt.toISOString(),
+        updatedAt: apt.updatedAt.toISOString(),
+      })),
     });
   } catch (error) {
     console.error("Error fetching appointments:", error);
@@ -69,7 +93,7 @@ export const getAllAppointments = async (
 
 export const getWeeklyAppointments = async (
   _req: Request,
-  res: Response
+  res: Response<GetWeeklyAppointmentsResponse | ErrorResponse>
 ): Promise<void> => {
   try {
     const now = new Date();
@@ -94,11 +118,19 @@ export const getWeeklyAppointments = async (
     res.status(200).json({
       message: "Weekly appointments retrieved successfully",
       week: {
-        start: startOfWeek,
-        end: endOfWeek,
+        start: startOfWeek.toISOString(),
+        end: endOfWeek.toISOString(),
       },
       count: appointments.length,
-      data: appointments,
+      data: appointments.map((apt) => ({
+        _id: apt._id.toString(),
+        name: apt.name,
+        phoneNumber: apt.phoneNumber,
+        date: apt.date.toISOString().split("T")[0],
+        time: apt.time,
+        createdAt: apt.createdAt.toISOString(),
+        updatedAt: apt.updatedAt.toISOString(),
+      })),
     });
   } catch (error) {
     console.error("Error fetching weekly appointments:", error);
@@ -111,7 +143,7 @@ export const getWeeklyAppointments = async (
 
 export const deleteAppointment = async (
   req: Request,
-  res: Response
+  res: Response<DeleteAppointmentResponse | ErrorResponse>
 ): Promise<void> => {
   try {
     const { id } = req.params;
@@ -128,7 +160,6 @@ export const deleteAppointment = async (
 
     res.status(200).json({
       message: "Appointment deleted successfully",
-      data: appointment,
     });
   } catch (error) {
     console.error("Error deleting appointment:", error);
