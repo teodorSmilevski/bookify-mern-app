@@ -10,7 +10,8 @@
   "keywords": [
     "shared",
     "dto",
-    "types"
+    "types",
+    "utils"
   ],
   "author": "",
   "license": "ISC"

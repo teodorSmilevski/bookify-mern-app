@@ -3,7 +3,147 @@
 
 .home-page {
   min-height: calc(100vh - 200px);
-  padding: $spacing-2xl $spacing-lg;
+
+  // Hero Section
+  &__hero {
+    background: linear-gradient(135deg, $charcoal 0%, $slate 100%);
+    padding: $spacing-3xl $spacing-lg;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba($peach, 0.03) 10px,
+        rgba($peach, 0.03) 20px
+      );
+      pointer-events: none;
+    }
+  }
+
+  &__hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__hero-title {
+    font-size: clamp($font-size-3xl, 4vw, 56px);
+    font-weight: 800;
+    color: $text-light;
+    margin-bottom: $spacing-md;
+    line-height: 1.2;
+  }
+
+  &__hero-highlight {
+    color: $amber;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: $crimson;
+    }
+  }
+
+  &__hero-subtitle {
+    font-size: $font-size-xl;
+    color: $peach;
+    opacity: 0.9;
+  }
+
+  // Info Section
+  &__info-section {
+    padding: $spacing-3xl $spacing-lg;
+    background: $bg-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__info-cards {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: $spacing-xl;
+    flex-wrap: wrap;
+  }
+
+  &__info-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    text-align: center;
+    padding: $spacing-2xl;
+    background: $bg-secondary;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    transition: all $transition;
+    border: 2px solid transparent;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-xl;
+      border-color: rgba($amber, 0.3);
+    }
+
+    &--highlight {
+      background: linear-gradient(
+        135deg,
+        rgba($amber, 0.1) 0%,
+        rgba($peach, 0.1) 100%
+      );
+      border-color: $amber;
+    }
+  }
+
+  &__info-icon {
+    font-size: 48px;
+    margin-bottom: $spacing-md;
+  }
+
+  &__info-title {
+    font-size: $font-size-xl;
+    color: $accent-color;
+    font-weight: 600;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__info-text {
+    color: $text-primary;
+    font-size: $font-size-base;
+    line-height: 1.5;
+    margin: $spacing-xs 0;
+
+    &--small {
+      font-size: $font-size-sm;
+      color: $crimson;
+      font-weight: 500;
+    }
+  }
+
+  // Booking Section
+  &__booking {
+    padding: $spacing-3xl $spacing-lg;
+    background: linear-gradient(to bottom, $bg-primary 0%, $bg-secondary 100%);
+  }
 
   &__container {
     max-width: 900px;

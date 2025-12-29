@@ -26,7 +26,7 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="login-page__container">
-        <h1 className="login-page__title">Login</h1>
+        <h1 className="login-page__title">Save your information</h1>
         <form className="login-page__form" onSubmit={handleSubmit}>
           <Input
             label="Name"
