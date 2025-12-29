@@ -12,9 +12,9 @@
     grid-template-columns: 1.5fr 1fr 1.5fr 1.5fr 1fr;
     gap: $spacing-md;
     padding: $spacing-lg;
-    background: $bg-secondary;
+    background: $secondary-dark;
     font-weight: 600;
-    color: $text-primary;
+    color: $text-light;
   }
 
   &__header-cell {
@@ -46,6 +46,16 @@
 
     &--actions {
       justify-content: flex-end;
+
+      .button {
+        background-color: $crimson;
+        color: $text-light;
+        font-weight: 400;
+      }
+
+      .button:hover {
+        background-color: $accent-dark;
+      }
     }
   }
 

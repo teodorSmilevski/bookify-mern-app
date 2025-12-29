@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useUser } from "../../../context/UserContext";
 import { appointmentService } from "../../../services/appointment.service";
+import { validateName, validatePhoneNumber } from "@shared/utils/validation";
 
 export const useBookingForm = () => {
   const { user, setUser } = useUser();
@@ -39,9 +40,16 @@ export const useBookingForm = () => {
   };
 
   const validateForm = (): string | null => {
-    if (!name || phoneNumber === "+389 ") {
-      return "Please enter your name and phone number";
+    const nameValidation = validateName(name);
+    if (!nameValidation.isValid) {
+      return nameValidation.error || "Invalid name";
     }
+
+    const phoneValidation = validatePhoneNumber(phoneNumber);
+    if (!phoneValidation.isValid) {
+      return phoneValidation.error || "Invalid phone number";
+    }
+
     if (!selectedDate) {
       return "Please select a date";
     }

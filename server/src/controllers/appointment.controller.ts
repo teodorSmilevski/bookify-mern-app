@@ -8,6 +8,7 @@ import {
   DeleteAppointmentResponse,
   ErrorResponse,
 } from "@shared/dtos/appointment.dto";
+import { validateName, validatePhoneNumber } from "@shared/utils/validation";
 
 export const createAppointment = async (
   req: Request<{}, {}, CreateAppointmentRequest>,
@@ -20,6 +21,24 @@ export const createAppointment = async (
       res.status(400).json({
         error: "Missing required fields",
         message: "Name, phone number, date, and time are required",
+      });
+      return;
+    }
+
+    const nameValidation = validateName(name);
+    if (!nameValidation.isValid) {
+      res.status(400).json({
+        error: "Invalid name",
+        message: nameValidation.error || "Name validation failed",
+      });
+      return;
+    }
+
+    const phoneValidation = validatePhoneNumber(phoneNumber);
+    if (!phoneValidation.isValid) {
+      res.status(400).json({
+        error: "Invalid phone number",
+        message: phoneValidation.error || "Phone number validation failed",
       });
       return;
     }
